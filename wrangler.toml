@@ -1,0 +1,23 @@
+name = "atlas-worker"
+type = "javascript"
+account_id = "205cbf1b2ba951a08239df08018c27be"
+route = ""
+compatibility_date = "2022-01-19"
+workers_dev = true
+
+[vars]
+ATLAS_URL = "https://atlas-js.vercel.app"
+META_SERVER_URL = "https://172.105.248.87.nip.io/social-previews"
+
+[build]
+command = "yarn install --immutable && yarn build"
+[build.upload]
+format = "service-worker"
+
+[env.production]
+zone_id = "eb10a91449103589d6b944894d67f98b"
+routes = ["atlas.koalva.io/*"]
+
+[env.production.vars]
+ATLAS_URL = "https://atlas-js.vercel.app"
+META_SERVER_URL = "https://172.105.248.87.nip.io/social-previews"
